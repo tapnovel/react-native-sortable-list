@@ -1,6 +1,6 @@
 import React, {Component, cloneElement} from 'react';
 import PropTypes from 'prop-types';
-import {Animated, PanResponder, StyleSheet, ViewPropTypes} from 'react-native';
+import {Animated, InteractionManager, PanResponder, StyleSheet, ViewPropTypes} from 'react-native';
 import {shallowEqual} from './utils';
 
 export default class Row extends Component {
@@ -161,6 +161,12 @@ export default class Row extends Component {
       y: this._location.y + dy,
     };
     this._relocate(this._nextLocation, animated);
+  }
+
+  componentWillUnmount() {
+    if (this._panResponder.getInteractionHandle()) {
+      InteractionManager.clearInteractionHandle(this._panResponder.getInteractionHandle());
+    }
   }
 
   render() {
