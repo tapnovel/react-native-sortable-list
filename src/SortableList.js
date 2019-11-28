@@ -113,7 +113,7 @@ export default class SortableList extends Component {
         });
       });
 
-      if (Object.keys(nextData).length > Object.keys(data).length) {
+      if (Object.keys(nextData).length !== Object.keys(data).length) {
         this.setState({
           animated: false,
           data: nextData,
