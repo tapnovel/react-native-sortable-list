@@ -5,7 +5,7 @@ import {shallowEqual, swapArrayElements} from './utils';
 import Row from './Row';
 
 const AUTOSCROLL_INTERVAL = 100;
-const ZINDEX = Platform.OS === 'ios' ? 'zIndex' : 'elevation';
+const ZINDEX = Platform.OS === 'android' ? 'elevation' : 'zIndex';
 
 function uniqueRowKey(key) {
   return `${key}${uniqueRowKey.id}`
