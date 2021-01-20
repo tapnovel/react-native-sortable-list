@@ -84,8 +84,7 @@ export default class Row extends Component {
     onPanResponderMove: (e, gestureState) => {
       if (
         !this._active ||
-        gestureState.numberActiveTouches > 1 ||
-        e.nativeEvent.target !== this._target
+        gestureState.numberActiveTouches > 1
       ) {
         if (!this._isTouchInsideElement(e)) {
           this._cancelLongPress();
